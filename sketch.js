@@ -3,16 +3,23 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 var ground;
+var engine, world;
 
 function setup() {
   createCanvas(480,800);
+  
+  engine = Engine.create();
+  world = engine.world;
+  
   ground = new Ground(240,795,480,10);
-  createSprite(400, 200, 50, 50);
+ 
 
 }
 
 function draw() {
-  background("black");  
+  background("black"); 
+  Engine.update(engine);
+  
   ground.display();
-  drawSprites();
+  
 }
